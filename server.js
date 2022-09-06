@@ -13,7 +13,7 @@ http.createServer((request, response) => {
     if (err) {
       console.log(err);
     } else {
-      console.log('Added to log.' + Date());
+      console.log('Added to log. - - - ' + Date());
     }
   });
     
