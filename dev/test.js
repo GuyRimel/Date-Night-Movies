@@ -1,33 +1,34 @@
 // this is just awful. don't run this!
 
 let 
-  isDodoExtinct = true,
+  isDodoExtinct = false,
   reactionToDodoExtinction = 'we killed them all. WHYYY?',
   reactionToDodoSurvival = 'still got \'em, let\'s eat one!',
+  counter = 0,
   interval = 3000;
 
 function obsessOverNews() {
-  setInterval( () => {
+  setTimeout( () => {
     (isDodoExtinct === true) ?
-      console.log(reactionToDodoExtinction + 'obsessed: ' + new Date()) :
-      console.log(reactionToDodoSurvival + 'obsessed: ' + new Date());
+    console.log(reactionToDodoExtinction) :
+    console.log(reactionToDodoSurvival);
+    counter++;
+    if(counter < 10) { getFrantic() }
   }, interval);
-  getMoreFrantic();
 }
 
-function getMoreFrantic() {
-  setInterval(() => {
+function getFrantic() {
+  setTimeout(() => {
+    console.log('frantic');
     (isDodoExtinct === true) ?
     reactionToDodoExtinction += '?' :
     reactionToDodoSurvival += '!';
   }, interval + 500);
-  console.log('got frantic: ' + new Date());
+  obsessOverNews();
 }
 
 function maddeningCycle() {
   obsessOverNews();
 }
 
-for(i=0; i<3; i++){
-  maddeningCycle();
-}
+maddeningCycle();
