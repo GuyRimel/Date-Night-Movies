@@ -8,14 +8,85 @@
   <title>Documentation: Date Night Movies</title>
 </head>
 <body>
-  <h1>Documentation for Date Night Movies API</h1>
-  <h2>-- now with CSS! --</h2>
+  <header>
+    <h1>Documentation for Date Night Movies API</h1>
+    <h2>-- now with CSS! --</h2>
+  </header>
 
-  <p>Date Night Movies (DNM) will be an app with a collection of movies that a guy and a girl can both enjoy together.</p>
-
-  <p>The action movies have a love component, and the romance movies are actually funny to a guy.</p>
-  
-  <p>This API will be able to serve data about the movies in the DNM database using Node.js and Express.</p>
+  <table>
+    <thead>
+      <th>Endpoint Description</th>
+      <th>Method</th>
+      <th>URL</th>
+      <th>Body</th>
+      <th>Response</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Returns a JSON object of ALL movies</td>
+        <td>GET</td>
+        <td>/movies</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Returns a JSON object of a single movie</td>
+        <td>GET</td>
+        <td>/movies/:title</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Returns a JSON object of all movies of a certain genre</td>
+        <td>GET</td>
+        <td>/movies/:genre</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Returns a JSON object of a movie-director by name</td>
+        <td>GET</td>
+        <td>/directors/:name</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Creates a new user, then gives acknowledgement</td>
+        <td>POST</td>
+        <td>/users/:username</td>
+        <td>-</td>
+        <td>201</td>
+      </tr>
+      <tr>
+        <td>Updates the username of a user, then gives acknowledgement</td>
+        <td>PUT</td>
+        <td>/users/:username</td>
+        <td>-</td>
+        <td>201</td>
+      </tr>
+      <tr>
+        <td>Adds a movie to a user's list of "favorites", then gives an acknowledgement</td>
+        <td>POST</td>
+        <td>/users/favorites</td>
+        <td>JSON</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>Removes a movie from a user's list of favorites, then gives an acknowledgement</td>
+        <td>DELETE</td>
+        <td>/users/favorites/:title</td>
+        <td>-</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>Removes an existing user from the database</td>
+        <td>DELETE</td>
+        <td>/users/:username</td>
+        <td>-</td>
+        <td>200</td>
+      </tr>
+    </tbody>
+  </table>
   
 </body>
 </html>

@@ -1,4 +1,32 @@
+:root * {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 body {
-  background-color: beige;
-  color: green;
+  background-color: whitesmoke;
+}
+
+header {
+  background-color: darkcyan;
+  color: #fff;
+  padding: 1em;
+}
+
+table {
+  width: 100%;
+  padding: 1em 0;
+  background-color: #ddd;
+}
+
+table * {
+  background-color: #fff;
+  border: 1px solid #777;
+  padding: 0.5em;
+}
+
+thead * {
+  background-color: darkblue;
+  color: #eee;
 }
