@@ -76,7 +76,7 @@ app.get('/movies/:title', (req, res) => {
 });
 
 // Returns a JSON object of all movies of a certain genre
-app.get('/movies/:genre', (req, res) => {
+app.get('/movies/genres/:genre', (req, res) => {
   let responseText = 'Returns a JSON object of all movies of a certain genre';
   res.send(responseText);
 });
@@ -102,30 +102,33 @@ app.post('/users', (req, res) => {
 });
 
 // Updates the username of a user, then gives acknowledgement
-app.get('/users/:username', (req, res) => {
+app.put('/users/:id/:username', (req, res) => {
   let responseText = `Updates the username of a user, then gives acknowledgement`;
   res.send(responseText);
 });
 
 // Adds a movie to a user's list of "favorites", then gives an acknowledgement
-app.get('/users/favorites', (req, res) => {
+app.post('/users/:id/:title', (req, res) => {
   let responseText = `Adds a movie to a user's list of "favorites", then gives an acknowledgement`;
   res.send(responseText);
 });
 
 // Removes a movie from a user's list of favorites, then gives an acknowledgement
-app.get('/users/favorites/:title', (req, res) => {
+app.delete('/users/:id/:title', (req, res) => {
   let responseText = `Removes a movie from a user's list of favorites, then gives an acknowledgement`;
   res.send(responseText);
 });
 
-// Removes an existing user from the database by userID
+// Removes an existing user from the database by user id
 app.delete('/users/:id', (req, res) => {
   let user = usersList.find((user) => {
     return user.id === req.params.id;
   });
 
-  if(user) {
+  if(!user) {
+    let responseText = `Removes an existing user from the database by user id`;
+    res.send(responseText);
+  } else {
     usersList = usersList.filter((obj) => obj.id !== req.params.id);
     res.status(201).send(`User ${req.params.id} was deleted.`)
   }
