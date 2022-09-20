@@ -24,7 +24,7 @@ const accessLogStream = fs.createWriteStream(
 app.use(morgan('common', {stream: accessLogStream}));
 
 // responses to requests for static content will serve from 'public' folder
-// this apparently will allow the html page to automatically link with its CSS, and JS in the
+// this will allow the html page to automatically link with its CSS, and JS in the
 // public folder
 app.use(express.static('public'));
 
@@ -47,7 +47,6 @@ useNewUrlParser: true, useUnifiedTopology: true
 
 
 // ENDPOINTS //////////
-// like a generic homepage
 app.get('/', (req, res) => {
   let responseText = '<h1>Welcome to Date Night Movies API!</h1>';
   responseText += `
