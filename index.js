@@ -1,42 +1,25 @@
+// IMPORTS //////////
 const
   express = require('express'),
   bodyParser = require('body-parser'),
   fs = require('fs'),
+  mongoose = require('mongoose'),
+  Models = require('models/models.js'),
   morgan = require('morgan'),
   path = require('path'),
   uuid = require('uuid');
 
+
+// IMPORT REFS //////////
 const app = express();
 
-// some test data
-let moviesList = [
-  { title: "Godzilla", genre: "Big Lizards" },
-  { title: "Movie Title 2" },
-  { title: "Movie Title 3" },
-  { title: "Movie Title 4" },
-  { title: "Movie Title 5" },
-  { title: "Movie Title 6" },
-  { title: "Movie Title 7" },
-  { title: "Movie Title 8" },
-  { title: "Movie Title 9" },
-  { title: "Movie Title 10" }
-];
 
-let usersList = [
-  {
-    name: "John Smith",
-    username: "JDawg",
-    id: "",
-    favorites: []
-  }
-]
-
+// MIDDLEWARE //////////
+// MORGAN //////////
 // accessLogStream uses the fs and path modules to append 'log.txt'
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, 'log.txt'), {flags: 'a'});
 
-
-///// MIDDLEWARE
 // morgan pkg logs a timestamp to 'log.txt'
 app.use(morgan('common', {stream: accessLogStream}));
 
@@ -45,10 +28,25 @@ app.use(morgan('common', {stream: accessLogStream}));
 // public folder
 app.use(express.static('public'));
 
-// uses body-parser module for request bodies (containing JSON)
+
+// BODY-PARSER //////////
+// use body-parser module for request bodies (containing JSON)
 app.use(bodyParser.json());
 
-///// ENDPOINTS
+// use body-parser to parse url encoded content from the response body (extends to all data types)
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// MONGOOSE //////////
+const Movies = Models.Movie;
+const Users = Models.User;
+
+mongoose.connect('mongodb://localhost:27017/DNMovies', {
+useNewUrlParser: true, useUnifiedTopology: true
+});
+
+
+// ENDPOINTS //////////
 // like a generic homepage
 app.get('/', (req, res) => {
   let responseText = '<h1>Welcome to Date Night Movies API!</h1>';
