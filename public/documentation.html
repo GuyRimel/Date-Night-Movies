@@ -9,8 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>Documentation for Date Night Movies API</h1>
-    <h2>-- now with CSS! --</h2>
+    <h1>Date Night Movies API</h1>
   </header>
 
   <table>
@@ -24,63 +23,84 @@
     <tbody>
       <tr>
         <td>Returns a JSON object of ALL movies</td>
-        <td>GET</td>
+        <td class="get">GET</td>
         <td>/movies</td>
         <td>-</td>
         <td>JSON</td>
       </tr>
       <tr>
         <td>Returns a JSON object of a single movie</td>
-        <td>GET</td>
-        <td>/movies/:title</td>
+        <td class="get">GET</td>
+        <td>/movies/:Title</td>
         <td>-</td>
         <td>JSON</td>
       </tr>
       <tr>
         <td>Returns a JSON object of all movies of a certain genre</td>
-        <td>GET</td>
-        <td>/movies/genres/:genre</td>
+        <td class="get">GET</td>
+        <td>/movies/genre/:Genre</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Returns the description of a genre</td>
+        <td class="get">GET</td>
+        <td>/genre/:Genre</td>
         <td>-</td>
         <td>JSON</td>
       </tr>
       <tr>
         <td>Returns a JSON object of a movie-director by name</td>
-        <td>GET</td>
+        <td class="get">GET</td>
         <td>/directors/:name</td>
         <td>-</td>
         <td>JSON</td>
       </tr>
       <tr>
-        <td>Creates a new user, then gives acknowledgement</td>
-        <td>POST</td>
+        <td>Returns a JSON object of all users</td>
+        <td class="get">GET</td>
+        <td>/users</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Returns a JSON object of one user</td>
+        <td class="get">GET</td>
+        <td>/users/:Username</td>
+        <td>-</td>
+        <td>JSON</td>
+      </tr>
+      <tr>
+        <td>Creates a new user from a JSON</td>
+        <td class="post">POST</td>
         <td>/users</td>
         <td>JSON</td>
         <td>201</td>
       </tr>
       <tr>
-        <td>Updates the username of a user, then gives acknowledgement</td>
-        <td>PUT</td>
+        <td>Adds a movie to a user's list of favorite movies</td>
+        <td class="post">POST</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>-</td>
+        <td>201</td>
+      </tr>
+      <tr>
+        <td>Updates the username of a user</td>
+        <td class="put">PUT</td>
         <td>/users/:id/:username</td>
         <td>-</td>
         <td>201</td>
       </tr>
       <tr>
-        <td>Adds a movie to a user's list of "favorites", then gives an acknowledgement</td>
-        <td>POST</td>
-        <td>/users/:id/:title</td>
-        <td>-</td>
-        <td>201</td>
-      </tr>
-      <tr>
-        <td>Removes a movie from a user's list of favorites, then gives an acknowledgement</td>
-        <td>DELETE</td>
+        <td>Removes a movie from a user's list of favorite movies</td>
+        <td class="delete">DELETE</td>
         <td>/users/:id/:title</td>
         <td>-</td>
         <td>201</td>
       </tr>
       <tr>
         <td>Removes an existing user from the database</td>
-        <td>DELETE</td>
+        <td class="delete">DELETE</td>
         <td>/users/:id</td>
         <td>-</td>
         <td>201</td>

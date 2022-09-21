@@ -14,6 +14,10 @@ header {
   padding: 1em;
 }
 
+h1 {
+  color: #fff;
+}
+
 table {
   width: 100%;
   padding: 1em 0;
@@ -27,6 +31,11 @@ table * {
 }
 
 thead * {
-  background-color: darkblue;
-  color: #eee;
+  background-color: gold;
+  color: #444;
 }
+
+.get { color: blue }
+.post { color: green }
+.put { color: darkorange }
+.delete { color: red }
