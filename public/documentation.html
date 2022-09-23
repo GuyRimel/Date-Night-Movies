@@ -52,7 +52,7 @@
       <tr>
         <td>Returns a JSON object of a movie-director by name</td>
         <td class="get">GET</td>
-        <td>/directors/:name</td>
+        <td>/directors/:Name</td>
         <td>-</td>
         <td>JSON</td>
       </tr>
@@ -78,30 +78,30 @@
         <td>201</td>
       </tr>
       <tr>
-        <td>Adds a movie to a user's list of favorite movies</td>
-        <td class="post">POST</td>
-        <td>/users/:Username/movies/:MovieID</td>
-        <td>-</td>
+        <td>Updates the information of a user</td>
+        <td class="put">PUT</td>
+        <td>/users/:Username</td>
+        <td>JSON</td>
         <td>201</td>
       </tr>
       <tr>
-        <td>Updates the username of a user</td>
+        <td>Adds a movie to a user's list of favorite movies</td>
         <td class="put">PUT</td>
-        <td>/users/:id/:username</td>
+        <td>/users/:Username/movies/:_id</td>
         <td>-</td>
         <td>201</td>
       </tr>
       <tr>
         <td>Removes a movie from a user's list of favorite movies</td>
         <td class="delete">DELETE</td>
-        <td>/users/:id/:title</td>
+        <td>/users/:Username/movies/:_id</td>
         <td>-</td>
         <td>201</td>
       </tr>
       <tr>
         <td>Removes an existing user from the database</td>
         <td class="delete">DELETE</td>
-        <td>/users/:id</td>
+        <td>/users/:Username</td>
         <td>-</td>
         <td>201</td>
       </tr>

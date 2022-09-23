@@ -9,7 +9,7 @@ body {
 }
 
 header {
-  background-color: darkcyan;
+  background-color: #444;
   color: #fff;
   padding: 1em;
 }
@@ -32,7 +32,7 @@ table * {
 
 thead * {
   background-color: gold;
-  color: #444;
+  color: #222;
 }
 
 .get { color: blue }

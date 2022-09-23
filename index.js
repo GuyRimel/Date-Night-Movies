@@ -34,14 +34,13 @@ app.use(morgan('common', {stream: accessLogStream}));
 app.use(express.static('public'));
 
 
-
 // MONGOOSE //////////
-// 'Movies' and 'Users' are mongoose models exported from 'models.js'
+// 'Movies' and 'Users' are mongoose models are exposed in 'models.js'
 const Movies = Models.Movie;
 const Users = Models.User;
 
 mongoose.connect('mongodb://localhost:27017/DNMovies', {
-useNewUrlParser: true, useUnifiedTopology: true
+  useNewUrlParser: true, useUnifiedTopology: true
 });
 
 
@@ -191,34 +190,32 @@ app.put('/users/:Username', (req, res) => {
 });
 
 // Adds a movie to a user's list of favorite movies
-app.post('/users/:Username/movies/:MovieID', (req, res) => {
+app.put('/users/:Username/movies/:_id', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-    $addToSet: { FavoriteMovies: req.params.MovieID } // $addToSet won't add duplicates (note: if there IS a duplicate, it won't throw an error either...)
+    $addToSet: { FavoriteMovies: req.params._id } // $addToSet won't add duplicates (note: if there IS a duplicate, it won't throw an error either...)
   },
-  { new: true },  // the *updated (new) document is returned
-  (err, updatedUser) => {
-    if(err) {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    } else {
-      res.json(updatedUser);
-    }
+  { new: true })  // the *updated (new) document is returned
+  .then((updatedUser) => {
+    res.json(updatedUser);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
   });
 });
 
 // Removes a movie from a user's list of favorite movies
-app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+app.delete('/users/:Username/movies/:_id', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-    $delete: { FavoriteMovies: req.params.MovieID }
+    $pull: { FavoriteMovies: req.params._id }
   },
-  { new: true },  // the *updated (new) document is returned
-  (err, updatedUser) => {
-    if(err) {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    } else {
-      res.json(updatedUser);
-    }
+  { new: true })  // the *updated (new) document is returned
+  .then((updatedUser) => {
+    res.json(updatedUser);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
   });
 });
 
@@ -239,7 +236,7 @@ app.delete('/users/:Username', (req, res) => {
 });
 
 
-///// ERROR HANDLING
+///// ERROR HANDLING //////////
 app.use((err, req, res, next) => {
   console.log(err.stack);
   res.status(500).send('ERROR! ERROR! ERROR!');
