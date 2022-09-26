@@ -5,7 +5,7 @@ const
   bodyParser = require('body-parser'),
   fs = require('fs'),
   mongoose = require('mongoose'),
-  Models = require('./models/models.js'),
+  Models = require('./backend/models.js'),
   morgan = require('morgan'),
   path = require('path'),
   uuid = require('uuid');
@@ -42,6 +42,15 @@ const Users = Models.User;
 mongoose.connect('mongodb://localhost:27017/DNMovies', {
   useNewUrlParser: true, useUnifiedTopology: true
 });
+
+
+// AUTHORIZATION //////////
+let auth = require('backend/auth.js')(app);
+
+
+// PASSPORT //////////
+const passport = require('passport');
+require('backend/passport.js');
 
 
 // ENDPOINTS //////////

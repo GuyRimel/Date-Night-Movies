@@ -331,3 +331,6 @@
 ::1 - - [23/Sep/2022:17:08:19 +0000] "DELETE /users/stinku/movies/632b1ef7b5abd92c23c85772 HTTP/1.1" 500 20
 ::1 - - [23/Sep/2022:17:09:33 +0000] "DELETE /users/stinku/movies/632b1ef7b5abd92c23c85772 HTTP/1.1" 200 202
 ::1 - - [23/Sep/2022:17:12:52 +0000] "DELETE /users/stinku HTTP/1.1" 200 27
+::1 - - [26/Sep/2022:14:06:37 +0000] "GET /documentation HTTP/1.1" 200 2971
+::1 - - [26/Sep/2022:14:06:37 +0000] "GET /css/draft.css HTTP/1.1" 200 631
+::1 - - [26/Sep/2022:14:06:37 +0000] "GET /favicon.ico HTTP/1.1" 404 150
