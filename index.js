@@ -5,7 +5,7 @@ const
   bodyParser = require('body-parser'),
   fs = require('fs'),
   mongoose = require('mongoose'),
-  Models = require('./backend/models.js'),
+  Models = require('./models.js'),
   morgan = require('morgan'),
   path = require('path'),
   uuid = require('uuid');
@@ -44,13 +44,13 @@ mongoose.connect('mongodb://localhost:27017/DNMovies', {
 });
 
 
-// AUTHORIZATION //////////
-let auth = require('backend/auth.js')(app);
+// AUTHENTICATION //////////
+let auth = require('./auth')(app);
 
 
 // PASSPORT //////////
 const passport = require('passport');
-require('backend/passport.js');
+require('./passport');
 
 
 // ENDPOINTS //////////
@@ -69,7 +69,7 @@ app.get('/documentation', (req, res) => {
 });
 
 // returns a JSON object of ALL movies
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.json(movies);
@@ -248,7 +248,7 @@ app.delete('/users/:Username', (req, res) => {
 ///// ERROR HANDLING //////////
 app.use((err, req, res, next) => {
   console.log(err.stack);
-  res.status(500).send('ERROR! ERROR! ERROR!');
+  res.status(500).send('ERROR! ERROR! ERROR! ... ' + err);
 });
 
 app.listen(8080, () => console.log('App listening on port 8080.'));

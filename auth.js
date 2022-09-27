@@ -3,7 +3,7 @@ const
   jwt = require('jsonwebtoken'),
   passport = require('passport');
 
-require('./passport.js');
+require('./passport');
 
 let generateJWTToken = (user) => {
   return jwt.sign(user, jwtSecret, {

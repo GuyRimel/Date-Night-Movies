@@ -334,3 +334,13 @@
 ::1 - - [26/Sep/2022:14:06:37 +0000] "GET /documentation HTTP/1.1" 200 2971
 ::1 - - [26/Sep/2022:14:06:37 +0000] "GET /css/draft.css HTTP/1.1" 200 631
 ::1 - - [26/Sep/2022:14:06:37 +0000] "GET /favicon.ico HTTP/1.1" 404 150
+::1 - - [27/Sep/2022:14:44:39 +0000] "GET / HTTP/1.1" 200 193
+::1 - - [27/Sep/2022:14:44:40 +0000] "GET /favicon.ico HTTP/1.1" 404 150
+::1 - - [27/Sep/2022:14:44:42 +0000] "GET /documentation HTTP/1.1" 304 -
+::1 - - [27/Sep/2022:14:44:42 +0000] "GET /css/draft.css HTTP/1.1" 304 -
+::1 - - [27/Sep/2022:14:45:04 +0000] "GET /movies HTTP/1.1" 500 20
+::1 - - [27/Sep/2022:14:46:27 +0000] "GET /movies HTTP/1.1" 500 65
+::1 - - [27/Sep/2022:14:47:02 +0000] "GET /movies HTTP/1.1" 500 69
+::1 - - [27/Sep/2022:14:50:55 +0000] "POST /users HTTP/1.1" 201 176
+::1 - - [27/Sep/2022:14:54:08 +0000] "GET /movies?Username=jammyfish&Password=stingers HTTP/1.1" 500 69
+::1 - - [27/Sep/2022:14:56:26 +0000] "GET /movies?Username=jammyfish&Password=stingers HTTP/1.1" 500 81
