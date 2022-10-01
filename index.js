@@ -146,18 +146,6 @@ app.get('/directors/:Name', (req, res) => {
     })
 });
 
-// Returns a JSON object of all users
-app.get('/users', (req, res) => {
-  Users.find()
-    .then((users) => {
-      res.status(201).json(users);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
-});
-
 // Returns a JSON object of one user by username
 app.get('/users/:Username', (req, res) => {
   Users.findOne({ Username: req.params.Username })
