@@ -2,6 +2,7 @@
 const
   express = require('express'),
   app = express(),
+  { check, validationResult } = require('express-validator'),
   bodyParser = require('body-parser'),
   fs = require('fs'),
   mongoose = require('mongoose'),
@@ -42,6 +43,23 @@ const Users = Models.User;
 mongoose.connect('mongodb://localhost:27017/DNMovies', {
   useNewUrlParser: true, useUnifiedTopology: true
 });
+
+
+// CORS //////////
+// allow for cross-origin resource sharing eg. accepting requests from  the frontend
+const cors = require('cors');
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1) { // if the origin isn't found in allowedOrigins
+      let message = 'The CORS policy for this application does not allow access from origin ' + origin;
+      return callback(new Error(message), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 
 // AUTHENTICATION //////////
@@ -154,6 +172,7 @@ app.get('/users/:Username', (req, res) => {
 
 // Creates a new user // expects a JSON in the request body
 app.post('/users', (req, res) => {
+  let hashedPassword = Users.hashedPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if(user) {
@@ -161,7 +180,7 @@ app.post('/users', (req, res) => {
       } else {
         Users.create({
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday
         })
