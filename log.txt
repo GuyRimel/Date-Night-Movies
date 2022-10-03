@@ -328,3 +328,6 @@
 ::1 - - [28/Sep/2022:20:27:30 +0000] "DELETE /users/JackSparrowTHREE HTTP/1.1" 200 37
 ::1 - - [30/Sep/2022:16:25:27 +0000] "GET /css/draft.css HTTP/1.1" 304 -
 ::1 - - [30/Sep/2022:16:25:27 +0000] "GET /favicon.ico HTTP/1.1" 404 150
+::1 - - [03/Oct/2022:16:52:32 +0000] "GET /documentation HTTP/1.1" 200 2791
+::1 - - [03/Oct/2022:16:52:32 +0000] "GET /css/draft.css HTTP/1.1" 200 631
+::1 - - [03/Oct/2022:16:52:32 +0000] "GET /favicon.ico HTTP/1.1" 404 150

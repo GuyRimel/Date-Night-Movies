@@ -46,7 +46,7 @@ mongoose.connect('mongodb://localhost:27017/DNMovies', {
 
 
 // CORS //////////
-// allow for cross-origin resource sharing eg. accepting requests from  the frontend
+// cross-origin resource sharing eg. accepting requests from  the frontend
 const cors = require('cors');
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 
@@ -159,50 +159,64 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 });
 
 // Creates a new user // expects a JSON in the request body
-app.post('/users', (req, res) => {
-  let hashedPassword = Users.hashedPassword(req.body.Password);
-  Users.findOne({ Username: req.body.Username })
-    .then((user) => {
-      if(user) {
-        return res.status(400).send(req.body.Username + ' already exists');
-      } else {
-        Users.create({
-          Username: req.body.Username,
-          Password: hashedPassword,
-          Email: req.body.Email,
-          Birthday: req.body.Birthday
-        })
-        .then((user) => { res.status(201).json(user) })
-        .catch((err) => {
-          console.error(err);
-          res.status(500).send('Error: ' + err);
-        })
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
-});
+app.post('/users',
+  // validation array. 'check' refs to 'express-validator' pkg import
+  [
+    check('Username', 'Username is required').isLength({ min: 5 }),
+    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()
+  ], (req, res) => {
 
-// Updates the information of a user by username
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndUpdate({ Username: req.params.Username }, {
-    $set: {
-      Username: req.body.Username,
-      Password: req.body.Password,
-      Email: req.body.Email,
-      Birthday: req.body.Birthday
+    // evaluate validations
+    let errors = validationResult(req);
+    if(!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
     }
-  },
-  { new: true }) // the *updated (new) document is returned
-    .then((updatedUser) => {
-      res.json(updatedUser);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
+
+    let hashedPassword = Users.hashedPassword(req.body.Password);
+    Users.findOne({ Username: req.body.Username })
+      .then((user) => {
+        if(user) {
+          return res.status(400).send(req.body.Username + ' already exists');
+        } else {
+          Users.create({
+            Username: req.body.Username,
+            Password: hashedPassword,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday
+          })
+          .then((user) => { res.status(201).json(user) })
+          .catch((err) => {
+            console.error(err);
+            res.status(500).send('Error: ' + err);
+          })
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      });
+  });
+
+  // Updates the information of a user by username
+  app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Users.findOneAndUpdate({ Username: req.params.Username }, {
+      $set: {
+        Username: req.body.Username,
+        Password: req.body.Password,
+        Email: req.body.Email,
+        Birthday: req.body.Birthday
+      }
+    },
+    { new: true }) // the *updated (new) document is returned
+      .then((updatedUser) => {
+        res.json(updatedUser);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      });
 });
 
 // Adds a movie to a user's list of favorite movies
@@ -258,4 +272,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('ERROR! ERROR! ERROR! ... ' + err);
 });
 
-app.listen(8080, () => console.log('App listening on port 8080.'));
+// looks for port number preconfigured (by Heroku), OR uses 8080
+const port = process.env.PORT || 8080;
+app.listen('0.0.0.0', () => console.log('Listening on port' + port));
