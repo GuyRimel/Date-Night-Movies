@@ -273,5 +273,5 @@ app.use((err, req, res, next) => {
 });
 
 // looks for port number preconfigured (by Heroku), OR uses 8080
-const port = process.env.PORT || 8080;
+const port = /*process.env.PORT ||*/ 8080;
 app.listen(port, () => console.log('Listening on port' + port));
