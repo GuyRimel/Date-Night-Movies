@@ -331,3 +331,4 @@
 ::1 - - [03/Oct/2022:16:52:32 +0000] "GET /documentation HTTP/1.1" 200 2791
 ::1 - - [03/Oct/2022:16:52:32 +0000] "GET /css/draft.css HTTP/1.1" 200 631
 ::1 - - [03/Oct/2022:16:52:32 +0000] "GET /favicon.ico HTTP/1.1" 404 150
+::1 - - [04/Oct/2022:14:23:33 +0000] "GET /css/draft.css HTTP/1.1" 304 -
