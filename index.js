@@ -174,7 +174,7 @@ app.post('/users',
       return res.status(422).json({ errors: errors.array() });
     }
 
-    let hashedPassword = Users.hashedPassword(req.body.Password);
+    let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({ Username: req.body.Username })
       .then((user) => {
         if(user) {
@@ -273,5 +273,5 @@ app.use((err, req, res, next) => {
 });
 
 // looks for port number preconfigured (by Heroku), OR uses 8080
-const port = /*process.env.PORT ||*/ 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log('Listening on port' + port));
