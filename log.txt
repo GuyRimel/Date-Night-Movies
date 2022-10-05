@@ -354,3 +354,8 @@
 ::1 - - [05/Oct/2022:17:48:07 +0000] "GET /css/draft.css HTTP/1.1" 200 631
 ::1 - - [05/Oct/2022:17:48:43 +0000] "GET /documentation HTTP/1.1" 304 -
 ::1 - - [05/Oct/2022:17:48:43 +0000] "GET /css/draft.css HTTP/1.1" 304 -
+::1 - - [05/Oct/2022:18:42:00 +0000] "GET /documentation HTTP/1.1" 200 2791
+::1 - - [05/Oct/2022:18:42:00 +0000] "GET /css/draft.css HTTP/1.1" 200 631
+::1 - - [05/Oct/2022:18:42:00 +0000] "GET /favicon.ico HTTP/1.1" 404 150
+::1 - - [05/Oct/2022:18:44:20 +0000] "POST /users HTTP/1.1" 201 241
+::1 - - [05/Oct/2022:18:45:42 +0000] "POST /login?Username=jammyfish&Password=stingers HTTP/1.1" 200 733

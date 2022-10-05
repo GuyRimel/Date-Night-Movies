@@ -40,7 +40,13 @@ app.use(express.static('public'));
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/DNMovies', {
+// use this block for LOCAL DB connection
+// mongoose.connect('mongodb://localhost:27017/DNMovies', {
+//   useNewUrlParser: true, useUnifiedTopology: true
+// });
+
+// use this block for REMOTE/HOSTED DB connection
+mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true, useUnifiedTopology: true
 });
 
@@ -273,7 +279,7 @@ app.use((err, req, res, next) => {
 });
 
 // looks for port number preconfigured (by Heroku), OR uses 80
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
-  console.log('Listening on port' + port);
+  console.log('Listening on port ' + port);
 });
