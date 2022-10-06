@@ -1,0 +1,7 @@
+{"_id":{"$oid":"632b21f3b5abd92c23c85780"},"Username":"prettyOboe94","Password":"whitegurldancing123","Birthday":{"$date":"1994-04-08T00:00:00Z"},"FavoriteMovies":[{"$oid":"632b1ef7b5abd92c23c8577b"},{"$oid":"632b1ef7b5abd92c23c8577c"}]}
+{"_id":{"$oid":"632b21f3b5abd92c23c85781"},"Username":"stinku","Password":"thisisanewpassword123","Birthday":{"$date":"2000-04-04T00:00:00Z"},"FavoriteMovies":[{"$oid":"632b1ef7b5abd92c23c85773"}],"Email":"newemail@email.com"}
+{"_id":{"$oid":"632b21f3b5abd92c23c85782"},"Username":"quesoCat","Password":"suckles123","Birthday":{"$date":"2019-03-01T00:00:00Z"},"FavoriteMovies":[{"$oid":"632b1ef7b5abd92c23c85777"},{"$oid":"632b1ef7b5abd92c23c85778"}]}
+{"_id":{"$oid":"632b87a6f1a7b9402c590327"},"Username":"Bob Custow","Password":"sailitbaby456","Email":"theocean@gmail.com","Birthday":{"$date":"1970-07-19T00:00:00Z"},"FavoriteMovies":[],"__v":0}
+{"_id":{"$oid":"633483608ad559c15063b3c9"},"Username":"ChesterMcTester","Password":"password123","Email":"theocean@gmail.com","Birthday":{"$date":"1970-07-19T00:00:00Z"},"FavoriteMovies":[],"__v":0}
+{"_id":{"$oid":"6334ab8632ee2e0c6baf8e9a"},"Username":"JackSparrow","Password":"theRum","Email":"whyisalltherumgone@piratemail.com","Birthday":{"$date":"1988-07-07T00:00:00Z"},"FavoriteMovies":[],"__v":0}
+{"_id":{"$oid":"633dd084cd900eebe1201402"},"Username":"jammyfish","Password":"$2b$10$Wv9eAVYEk3dkv7ZBsDCTd.nT88ORKfXh.7rnXyXfgxS2jE/qOeMje","Email":"whyisalltherumgone@piratemail.com","Birthday":{"$date":"1988-07-07T00:00:00Z"},"FavoriteMovies":[],"__v":0}
