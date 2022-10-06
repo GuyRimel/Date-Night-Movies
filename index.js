@@ -1,4 +1,5 @@
 // IMPORTS //////////
+require('dotenv').config();
 const
   express = require('express'),
   app = express(),
@@ -278,8 +279,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('ERROR! ERROR! ERROR! ... ' + err);
 });
 
-// looks for port number preconfigured (by Heroku), OR uses 80
-const port = process.env.PORT || 8080;
+// looks for port number preconfigured (by Heroku), OR uses 443
+const port = process.env.PORT || 443;
 app.listen(port, () => {
   console.log('Listening on port ' + port);
 });
