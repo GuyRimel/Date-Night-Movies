@@ -48,13 +48,14 @@ const Users = Models.User;
 // use this block for REMOTE/HOSTED DB connection
 mongoose.connect(process.env.CONNECTION_URI, {
   useNewUrlParser: true, useUnifiedTopology: true
-});
+})
+.then( console.log('DB Connected') );
 
 
 // CORS //////////
 // cross-origin resource sharing eg. accepting requests from  the frontend
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['*'];
 
 app.use(cors({
   origin: (origin, callback) => {
