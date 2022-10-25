@@ -85,23 +85,23 @@ app.get('/', (req, res) => {
   responseText += `
   <p>Be sure to use REST API software like "Postman" to make requests.</p>
   <p>Click <a href="/documentation">HERE</a> for the API documentation.</p>`;
-  res.send(responseText);
+  res.status(201).send(responseText);
 });
 
 // serve a static documentation.html page
 app.get('/documentation', (req, res) => {
-  res.sendFile('public/documentation.html', { root: __dirname });
+  res.status(201).sendFile('public/documentation.html', { root: __dirname });
 });
 
 // returns a JSON object of ALL movies
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
   Movies.find()
     .then((movies) => {
-      res.json(movies);
+      res.status(201).json(movies);
     })
     .catch((err) => {
       console.error(err);
-      res.status(400).send('Error: ' + err);
+      res.status(500).send('Error: ' + err);
     })
 });
 
@@ -109,7 +109,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
-      res.json(movie);
+      res.status(201).json(movie);
     })
     .catch ((err) => {
     console.error(err);
@@ -121,11 +121,11 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 app.get('/movies/genres/:Genre', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find({ "Genre.Name": req.params.Genre })
     .then((movies) => {
-      res.send(movies);
+      res.status(201).send(movies);
     })
     .catch((err) => {
       console.error(err);
-      res.status(400).send('Error: ' + err);
+      res.status(500).send('Error: ' + err);
     })
 });
 
@@ -133,11 +133,11 @@ app.get('/movies/genres/:Genre', passport.authenticate('jwt', { session: false }
 app.get('/genres/:Genre', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ "Genre.Name": req.params.Genre })
     .then((movie) => {
-      res.send(movie.Genre.Description);
+      res.status(201).send(movie.Genre.Description);
     })
     .catch((err) => {
       console.error(err);
-      res.status(400).send('Error: ' + err);
+      res.status(500).send('Error: ' + err);
     })
 });
 
@@ -145,7 +145,7 @@ app.get('/genres/:Genre', passport.authenticate('jwt', { session: false }), (req
 app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ "Director.Name": req.params.Name })
     .then((movie) => {
-      res.json(movie.Director);
+      res.status(201).json(movie.Director);
     })
     .catch((err) => {
       console.error(err);
@@ -157,7 +157,7 @@ app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (r
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
-      res.json(user);
+      res.status(201).json(user);
     })
     .catch ((err) => {
     console.error(err);
@@ -218,7 +218,7 @@ app.post('/users',
     },
     { new: true }) // the *updated (new) document is returned
       .then((updatedUser) => {
-        res.json(updatedUser);
+        res.status(201).json(updatedUser);
       })
       .catch((err) => {
         console.error(err);
@@ -233,7 +233,7 @@ app.put('/users/:Username/movies/:_id', passport.authenticate('jwt', { session: 
   },
   { new: true })  // the *updated (new) document is returned
   .then((updatedUser) => {
-    res.json(updatedUser);
+    res.status(201).json(updatedUser);
   })
   .catch((err) => {
     console.error(err);
@@ -248,7 +248,7 @@ app.delete('/users/:Username/movies/:_id', passport.authenticate('jwt', { sessio
   },
   { new: true })  // the *updated (new) document is returned
   .then((updatedUser) => {
-    res.json(updatedUser);
+    res.status(201).json(updatedUser);
   })
   .catch((err) => {
     console.error(err);
