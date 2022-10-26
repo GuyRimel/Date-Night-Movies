@@ -55,7 +55,7 @@ mongoose.connect(process.env.CONNECTION_URI, {
 
 // CORS //////////
 // cross-origin resource sharing eg. accepting requests from  the frontend
-let allowedOrigins = ['http://localhost:1234'];
+let allowedOrigins = ['http://localhost:1234', 'https://m.imdb.com'];
 app.use(cors({
   origin: (origin, callback) => {
     if(!origin) return callback(null, true);
