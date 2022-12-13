@@ -55,7 +55,7 @@ mongoose.connect(process.env.CONNECTION_URI, {
 
 // CORS //////////
 // cross-origin resource sharing eg. accepting requests from  the frontend
-let allowedOrigins = ['http://localhost:1234', 'https://datenightmovies.netlify.app/'];
+let allowedOrigins = ['http://localhost:1234', 'https://datenightmovies.netlify.app'];
 app.use(cors({
   allowedHeaders: ['Authorization', 'Content-Type'],
   origin: (origin, callback) => {
