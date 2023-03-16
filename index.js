@@ -200,8 +200,8 @@ app.post(
   [
     check(
       "Username",
-      "Username length must be at least 5 characters."
-    ).isLength({ min: 5 }),
+      "Username length must be at least 3 characters."
+    ).isLength({ min: 3 }),
     check(
       "Username",
       "Username contains non alphanumeric characters - not allowed."
