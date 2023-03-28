@@ -57,6 +57,7 @@ let allowedOrigins = [
   "http://localhost:1234",
   "http://localhost:4200",
   "https://datenightmovies.netlify.app",
+  "https://guyrimel.github.io"
 ];
 app.use(
   cors({
