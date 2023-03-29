@@ -124,10 +124,10 @@ app.get(
  * Returns a JSON object of a single movie
  */
 app.get(
-  "/movies/:Title",
+  "/movies/:_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Movies.findOne({ Title: req.params.Title })
+    Movies.findOne({ _id: req.params._id })
       .then((movie) => {
         res.status(201).json(movie);
       })
@@ -270,12 +270,16 @@ app.put(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    let hashedPassword;
+    if(req.body.Password) {
+      hashedPassword = Users.hashPassword(req.body.Password);
+    }
     Users.findOneAndUpdate(
       { Username: req.params.Username },
       {
         $set: {
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday,
         },
