@@ -64,8 +64,6 @@
 3. Create a user account with a username and password
 3. View information about a user (credentials required)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- BUILT WITH -->
 
 ### Built With
@@ -101,35 +99,43 @@ Date Night Movies (API) is currently live and hosted with GitHub Pages. This RES
 ### Prerequisites
 
 1. Git installed globally
-  - To automatically download Git for Windows click here: https://git-scm.com/download/win
-  - To install Git for macOS run the following in the Terminal:
-  ```sh
-  $ git --version
-  ```
-2. Node Version Manager (NVM) AND Node.js installed globally
-  - To download both Node.js and NPM, it's advised to first download NVM
-  - To download the latest version of NVM for Windows, click here: https://github.com/coreybutler/nvm-windows/releases/lastest
-  - Then, in the repository, download and run the `nvm-setup.exe` file
-  <br/>
-  - To download the latest version of NVM for macOS, first install Homebrew by running the following in the Terminal:
-  ```sh
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  ```
-  - Then, with Homebrew, run the following:
-  ```sh
-  brew install nvm
-  ```
-  <br/>
-  - Note: With NVM installed, you'll also be able to utilize Node Package Mangager (NPM)
-  - Finally, With NVM installed, run the following (Windows or macOS):
-  ```sh
-  nvm install node
-  ```
+    - To automatically download Git for Windows click here: https://git-scm.com/download/win
+    - To install Git for macOS run the following in the Terminal:
+
+    ```sh
+    $ git --version
+    ```
+
+2. Node Version Manager (NVM) *and* Node.js installed globally
+    - To download both Node.js and NPM, it's advised to first download NVM
+    - To download the latest version of NVM for Windows, click here: https://github.com/coreybutler/nvm-windows/releases/lastest
+    - Then, in the repository, download and run the `nvm-setup.exe` file
+    <br/>
+    - To download the latest version of NVM for macOS, first install Homebrew by running the following in the Terminal:
+
+    ```sh
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    ```
+
+    - Then, with Homebrew, run the following:
+
+    ```sh
+    brew install nvm
+    ```
+
+    - Note: With NVM installed, you'll also be able to utilize Node Package Mangager (NPM)
+    - Finally, With NVM installed, run the following (Windows or macOS):
+
+    ```sh
+    nvm install node
+    ```
+
 3. Express installed globally
-  - Install Express globally by running:
-  ```sh
-  npm install express -g
-  ```
+    - Install Express globally by running:
+
+    ```sh
+    npm install express -g
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,6 +144,7 @@ Date Night Movies (API) is currently live and hosted with GitHub Pages. This RES
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/GuyRimel/Date-Night-Movies.git
    ```
@@ -150,10 +157,13 @@ Date Night Movies (API) is currently live and hosted with GitHub Pages. This RES
 
 After installation...
 
-1. Clone the repo
+1. Start the Node server locally by running the following:
+
    ```sh
-   git clone https://github.com/GuyRimel/Date-Night-Movies.git
+   npm run start
    ```
+
+2. Now, with [Postman](https://www.postman.com/downloads/), or a similar API platform of choice, you may test the API endpoints found in the [documentation](https://datenightmovies.herokuapp.com/documentation)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,9 +171,11 @@ After installation...
 
 ## UX Notes
 
-- The navbar displays a totalizer keeping track of how many pokemon you've "caught" (clicked) so far.
-- Click on a Pokemon button from the list to see its sprite and information.
-- Clicking a Pokemon button now applies a border with a type-based color e.g., a "fire" type Pokemon would get an orange border.
+- You'll need to create an account by sending a `POST` request to the `/users` endpoint with your desired "Username", "Password", and "Email" key/values in a JSON object in the request body.
+- Upon successful account creation, the response body will show a JSON Object of the created user.
+- Now you can login by sending a `POST` request to the `/login` endpoint with the `Username` and `Password` key/values as parameters (with an empty request body).
+- A successful login request will show user data in a JSON object.
+- Copy the value found in `token`, then use it in a separate API requests (found in the [documentation](https://datenightmovies.herokuapp.com/documentation)) by pasting it in the Authorization tab, Type: "Bearer Token", Token: `paste token here`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
