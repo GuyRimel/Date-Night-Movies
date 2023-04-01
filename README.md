@@ -110,7 +110,6 @@ Date Night Movies (API) is currently live and hosted with GitHub Pages. This RES
     - To download both Node.js and NPM, it's advised to first download NVM
     - To download the latest version of NVM for Windows, click here: https://github.com/coreybutler/nvm-windows/releases/lastest
     - Then, in the repository, download and run the `nvm-setup.exe` file
-    <br/>
     - To download the latest version of NVM for macOS, first install Homebrew by running the following in the Terminal:
 
     ```sh
