@@ -53,7 +53,7 @@
   style="height: 16rem; width: auto;"
 />
 
-[https://github.com/GuyRimel/Pokedexterity](https://github.com/GuyRimel/Pokedexterity "Date Night Movies (API) Repository")
+[Date Night Movies (API) Repository](https://github.com/GuyRimel/Date-Night-Movies)
 
 <!-- KEY FEATURES -->
 
