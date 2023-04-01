@@ -170,7 +170,7 @@ After installation...
 
 ## UX Notes
 
-- You'll need to create an account by sending a `POST` request to the `/users` endpoint with your desired "Username", "Password", and "Email" key/values in a JSON object in the request body.
+- You'll need to create an account by sending a `POST` request to the `/users` endpoint with your desired "Username", "Password", "Email", and "Birthday" (ISO date) key/values in a JSON object in the request body.
 - Upon successful account creation, the response body will show a JSON Object of the created user.
 - Now you can login by sending a `POST` request to the `/login` endpoint with the `Username` and `Password` key/values as parameters (with an empty request body).
 - A successful login request will show user data in a JSON object.
