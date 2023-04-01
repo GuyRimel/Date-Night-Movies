@@ -50,7 +50,7 @@
 <img
   alt="Pokedexterity Screenshot"
   src="img/screenshots/screenshot00.png"
-  style="height: 16rem; width: auto;"
+  style="height: 16rem; width: auto; box-shadow: 0 1.25rem 1.25rem #0004"
 />
 
 [Date Night Movies (API) Repository](https://github.com/GuyRimel/Date-Night-Movies)
