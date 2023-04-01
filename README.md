@@ -10,7 +10,7 @@
   <h3 align="center">Date Night Movies (API)</h3>
 
   <p align="center">
-    This is the backend (RESTful) API that handles HTTP requests and communicates with a MongoDB database of movie and user data. For details about API endpoints, visit the <a href="https://datenightmovies.herokuapp.com/documentation" target="_blank">documentation</a>.
+    This is the communication layer (RESTful API) that handles HTTP requests and communicates with a MongoDB database of movie and user data. For details about API endpoints, visit the <a href="https://datenightmovies.herokuapp.com/documentation" target="_blank">documentation</a>.
   </p>
 </div>
 <br />
