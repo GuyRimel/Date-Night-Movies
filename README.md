@@ -50,7 +50,7 @@
 <img
   alt="Pokedexterity Screenshot"
   src="img/screenshots/screenshot00.png"
-  style="height: 16rem; width: auto; box-shadow: 0 1.25rem 1.25rem #0004"
+  style="height: 16rem; width: auto; padding: 0.25rem; margin: 0.25rem; background-color: #444;"
 />
 
 [Date Night Movies (API) Repository](https://github.com/GuyRimel/Date-Night-Movies)
@@ -184,13 +184,13 @@ After installation...
 <img
   src="img/screenshots/screenshot00.png"
   alt="screenshot"
-  style="height: 24rem; width: auto;"
+  style="height: 24rem; width: auto; padding: 0.25rem; margin: 0.25rem; background-color: #444;"
 />
 
 <img
   src="img/screenshots/screenshot01.png"
   alt="screenshot"
-  style="height: 24rem; width: auto;"
+  style="height: 24rem; width: auto; padding: 0.25rem; margin: 0.25rem; background-color: #444;"
 />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
