@@ -84,7 +84,7 @@ Date Night Movies (API) is currently live and hosted with GitHub Pages. This RES
 
 - [Date Night Movies React Frontend](https://datenightmovies.netlify.app/)
 
-- [Date Night Movies Angular Frontend](https://guyrimel.github.io/Date-Night-Movies-Angular-Client/)
+- [Date Night Movies Angular Frontend](https://guyrimel.github.io/Date-Night-Movies-Angular/)
 
 
 
